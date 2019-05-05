@@ -1,5 +1,5 @@
 ---
-title: "Matlab: need to know"
+title: "Matlab: need to knows"
 teaching: 0
 exercises: 0
 questions:

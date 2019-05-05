@@ -1,5 +1,5 @@
 ---
-title: "The EEG structure mapped to BIDS-EEG"
+title: "The EEG structure elements"
 teaching: 0
 exercises: 0
 questions:

@@ -1,5 +1,5 @@
 ---
-title: "Processing ERPs data with EEGLAB"
+title: "Basic ERP processing"
 teaching: 0
 exercises: 0
 questions:

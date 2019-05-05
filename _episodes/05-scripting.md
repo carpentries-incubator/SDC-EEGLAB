@@ -1,5 +1,5 @@
 ---
-title: "Automating EEGLAB processing with scripts"
+title: "Scripting from the history"
 teaching: 0
 exercises: 0
 questions:
