@@ -11,7 +11,7 @@ keypoints:
 - "Working with EEGLAB requires that specific files can be found in specific locations"
 ---
 
-## The basics of working with data in Matlab?
+## The basics of working with data in Matlab
 
 #### **EEGLAB is a set of Matlab functions (... which are text files).**
 
