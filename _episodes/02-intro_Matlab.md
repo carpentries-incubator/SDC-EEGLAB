@@ -3,15 +3,15 @@ title: "Matlab: need to knows"
 teaching: 0
 exercises: 0
 questions:
-- "What does EEGLAB need to know about the folder structures?"
-- "How to set up the paths in Matlab/Octave"
+- "How does one work with data in Matlab?"
+- "How to set up the paths in Matlab for EEGLAB"
 objectives:
-- "Undertand what EEGLAB needs to be able to find (data and scripts) and how to tell it where to find them."
+- "Undertsand what EEGLAB needs to be able to find (data and scripts) and how to tell it where to find them."
 keypoints:
 - "Working with EEGLAB requires that specific files can be found in specific locations"
 ---
 
-## What does Matlab/Octave need to know about the BIDS structure in order to run EEGLAB?
+## The basics of working with data in Matlab?
 
 #### **EEGLAB is a set of Matlab functions (... which are text files).**
 
@@ -23,12 +23,12 @@ For our purposes we can think of Matlab doing two very important things:
 
 Lets open the Matlab Integrated Development Environment (IDE) and take a look at these capabilities.
 
-![Matlab Integrated Development Environment]({{ page.root }}/fig/matlabIDE.png)
+![Matlab Integrated Development Environment]({{ page.root }}/fig/matlab_ide.png)
 
 > ## Anatomy of the Matlab Integrated Development Environment (IDE)
 > The Matlab IDE is made up of several sections in the Graphical User Interface (GUI). Each of these are important to understand as we move towards interacting with EEG data via EEGLAB.
 > 1. Command Window: This is where we interact with Matlab using the Command Line Interface (CLI) creating variable and performaing operations on them.
-> 2. Current FOlder: This is the directory that Matlab if pointing to. This is the part of the file system that Matlab sees an is its starting point for relative paths.
+> 2. Current Folder: This is the directory that Matlab is pointing to. This is the part of the file system that Matlab sees and is its starting point for relative paths.
 > 3. Workspace: this is a summary of the variables that are accessible to the Command Window
 > 4. Command History: This is the interactive list of operations that have been called from the Command Window.
 > 5. Editor: This is a text editor with added features for modifying Matlable interpreted text files (*.m files). 
@@ -41,7 +41,7 @@ Making new variables (or modifying existing variables) is accomplished using the
 
 We can create a new variable named "x" and make it equal to a series of numbers:
 ~~~
->> x=[1,2,3,4,5];
+x=[1,2,3,4,5];
 ~~~
 {: .source}
 
@@ -53,9 +53,65 @@ We can create a new variable named "x" and make it equal to a series of numbers:
 
 We can also perform operations on the variable and have the result saved to a new varialbe "y":
 ~~~
->> y=mean(x);
+y=mean(x);
 ~~~
 {: .source}
+
+~~~
+figure;plot(x);
+~~~
+{: .source}
+
+~~~
+y=rand(3,1000,600);
+~~~
+{: .source}
+
+~~~
+size(y);
+~~~
+{: .source}
+
+~~~
+figure;plot(y(2,:,8));
+hold on;plot(mean(y(2,:,1:16),3),'g');
+hold on;plot(mean(y(2,:,:),3),'r');
+~~~
+{: .source}
+
+![mean figure]({{ page.root }}/fig/mean_fig.png)
+
+~~~
+which mean;
+~~~
+{: .source}
+
+~~~
+edit mean;
+~~~
+{: .source}
+
+![mean edit]({{ page.root }}/fig/mean_edit.png)
+
+~~~
+eeglab;
+~~~
+{: .source}
+
+~~~
+cd ~/Desktop/face_house_13
+~~~
+{: .source}
+
+
+![eeglab path]({{ page.root }}/fig/eeglab_path.png)
+
+~~~
+addpath('derivatives/lossless/code/dependencies/eeglab_asr_amica');
+~~~
+{: .source}
+
+![eeglab gui]({{ page.root }}/fig/eeglab_gui.png)
 
 {% include links.md %}
 
