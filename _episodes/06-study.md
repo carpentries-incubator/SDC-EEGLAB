@@ -72,6 +72,10 @@ Now looking at the STUDY design we have multiple indpenedent variables, one for 
 
 ![study multi erp fig ]({{ page.root }}/fig/study_multi_erp_fig_crop.png)
 
+![study multi erp fig ]({{ page.root }}/fig/eeglab_save_study_menu_crop.png)
+
+![save study browse ]({{ page.root }}/fig/save_study_browse.png)
+
 {% include links.md %}
 
 
