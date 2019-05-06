@@ -68,10 +68,7 @@ Once all of the identified input generalizations are identified and alternative 
 
 #### **Run the script on multiple files by editing the input and output 'filename' parameters**
 
-
-When EEGLAB stores the Command Line completion of procedures generated from the GUI it does not always store them in a way that 
-
-> ## Each partiticpants files are savein a unique location
+> ## Each partiticpants' files are savein a unique location
 > Given that this example EEG project is stord in accordance with the Brain Imaging Data Structure (BIDS) standard each participant has their files stored within a sub## directory. It is important for this exercise that when editing this script to run different files the 'filepath' parameter of the load and save functions are also modified accordingly. 
 >
 > {: .source}
