@@ -76,6 +76,9 @@ size(y);
 ~~~
 {: .source}
 
+
+#### **A random number ERP**
+
 Next we can plot portions of the three dimensional array by indexing to y.
 Then apply an average to a specified range of values along the third dimension of y (pages, or tials in EEG) before plotting it as an overlay.
 Then finally average across the entire range of pages (epochs) and then overlay the result on the figure.
@@ -88,6 +91,8 @@ hold on;plot(mean(y(2,:,:),3),'r');
 {: .source}
 
 ![mean figure]({{ page.root }}/fig/mean_fig.png)
+
+#### **Exploring *.m files**
 
 Note that operations in Matlab are are text files that we can examine. Matlab needs to be able to see the text file (*.m) that describes a function in its "path". We can find out where Matlab is finding a function file by querying "which [funcname]". 
 ~~~
@@ -102,6 +107,8 @@ edit mean;
 {: .source}
 
 ![mean edit]({{ page.root }}/fig/mean_edit.png)
+
+#### **Starting EEGLAB**
 
 EEGLAB is a function that is executed by Matlab. If we call it before Matlab knows where it is an error will be returned. Try calling "eeglab" in the Command Window from where you are now.
 ~~~
@@ -132,6 +139,8 @@ eeglab
 EEGLAB has a Graphical User Interface (GUI) so we will be able to a lot of the processing by clicking in menus and interacting with figures, but we will also learn how to take advantage of EEGLAB's integration with the command line interface to work more efficiently and reliably.
 
 ![eeglab gui]({{ page.root }}/fig/eeglab_gui.png)
+
+#### **Setting some EEGLAB options so it behaves similarly for everyone**
 
 Now that we all have EEGLAB running in Matlab on our computers let's set a couple options to make sure that the software behaves similarly for all of us. Select "Memory and other options" from the EEGLAB "File" menu and adjust the settings as illustrated below.
 
