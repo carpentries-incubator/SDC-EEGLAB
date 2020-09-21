@@ -4,7 +4,7 @@ teaching: 0
 exercises: 0
 questions:
 - "Where are the EEG properties stored in EEGLAB's EEG structure?"
-- "How to work with the data array, events, channel coordinate, and ICA related fields"
+- "How to work with the data array, events, channel coordinates, and ICA related fields"
 objectives:
 - "Learn to interact with all the aspects of an EEG data file in EEGLAB"
 - "Establish a global view of the information layout in EEGLAB"
@@ -15,13 +15,13 @@ keypoints:
 
 #### **EEGLAB's EEG structure contains the information required to work with the EEG data**
 
-Now that we have EEGLAB running inside of Matlab let's take a look under the hood to see how EEGLAB organizes the information that is contained in an EEG recording file. In order to do this we will need to load an EEG recording from GUI.
+Now that we have EEGLAB running inside of Matlab let's take a look under the hood to see how EEGLAB organizes the information that is contained in an EEG recording file. In order to do this we will need to load an EEG recording from GUI. To do this, navigate to File > Using EEGLAB functions and plugins > From BIDS Subject folder
 
-![EEGLAB Load set]({{ page.root }}/fig/eeglab_load_set_crop.png)
+![EEGLAB Load set]({{ page.root }}/fig/eeglab_load_edf_crop.png)
 
-... Then select the *.set file in the sub-s01/eeg folder.
+... Then select the *.edf file in the sub-s01/eeg folder.
 
-![Import load browser]({{ page.root }}/fig/eeglab_load_set_browse_crop.png)
+![Import load browser]({{ page.root }}/fig/eeglab_load_edf_browse_crop.png)
 
 #### **Exploring properties of the EEG data file**
 
@@ -36,10 +36,10 @@ Beyond the basic EEG file property preview on the main EEGLAB window, there are 
 ![EEGLAB scroll]({{ page.root }}/fig/eeglab_scroll.png)
 
 > ## Notice that there are some changes to the figure settings:
-> These raw recordings have large voltage offsets and appear all over the figure axis (and outside of the figure axis) so we should modify a couple of the figure psettings.
-> 1. Remove the DC offset
-> 2. Decrease the voltage range
-> 3. Increase the time length
+> These raw recordings have large voltage offsets and appear all over the figure axis (and outside of the figure axis) so we should modify a couple of the figure settings.
+> 1. Remove the DC offset (Navigate to Display and select Remove DC offset)
+> 2. Decrease the voltage range (Enter 80 into the voltage box at the lower right hand side of the scroll plot)
+> 3. Increase the time length (Navigate to Settings>Time range to display and enter 30)
 >
 > {: .source}
 {: .callout}
@@ -81,7 +81,7 @@ EEG.chanlocs(1)
 
 
 > ## For fun: try to set latency of the 10th event to 100, and then replot the scalp scroll plot:
-> Hint: the event information is in "EEG.events"
+> Hint: the event information is in "EEG.event"
 >
 > {: .source}
 {: .callout}

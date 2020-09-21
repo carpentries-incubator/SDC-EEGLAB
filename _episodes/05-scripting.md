@@ -31,10 +31,17 @@ edit erpproc
 
 ![edit erpproc script]({{ page.root }}/fig/edit_erpproc.png)
 
-When copying the history from the Command Window there may be several function calls that are not required when running the script. Copy the history string from the point that the data were loaded into EEGLAB (pop_loadset), up to the point where the processed data was saved to file (pop_saveset). Once that the EEG.history string is pasted to the Editor in "erpproc.m", it can be saved then executed from the Command Window by calling its name at the prompt ">>".
+When copying the history from the Command Window there may be several function calls that are not required when running the script. Copy the history string from the first eeg_checkset, up to the point where the processed data was saved to file (pop_saveset). Prior to running the erpproc script, a load command needs to be added at the beginning of the script. To add a load command enter the following code to line 1 of your script:
 
 ~~~
-erpproc
+EEG = pop_bidsload('sub-002/eeg/sub-002_task-faceFO_eeg.edf');
+~~~
+{: .source}
+
+Once that the EEG.history string is pasted to the Editor in "erpproc.m" and the load command has been added, it can be saved then executed from the Command Window by calling its name at the prompt ">>".
+
+~~~
+>> erpproc
 ~~~
 {: .source}
  
@@ -75,7 +82,7 @@ Once all of the identified input generalizations are identified and alternative 
 {: .callout}
 
 > ## Scripting: How do I love thee, let me count the ways
-> 1. minimize operator error
+> 1. Minimize operator error
 > 2. Facilitate sharing of procedures 
 > 3. Provenance, a record of the exact process
 > 4. Efficiency

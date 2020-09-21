@@ -13,9 +13,9 @@ keypoints:
 ---
 ## Generate ERPs from an EEG recording using a basic procedure
 
-#### **Import or Load a set file into EEGLAB**
+#### **Import or Load an edf file into EEGLAB**
 
-Let's start with a new set file. Here is how to clear existing EEG structures from workspace:
+Let's start with a new edf file. Here is how to clear existing EEG structures from workspace:
 
 ![eeglab clear]({{ page.root }}/fig/eeglab_clear_crop.png)
 
@@ -43,7 +43,14 @@ After re-referencing we can also filter the data with the frequently used 1Hz hi
 
 Now that some of the basic signal processing is done to restrict the data to signal properties that we are interested in we can look for channels and periods of time that contain noise properties. These typically include large voltage fluxuations the would have relatively large impact on the ERPs while unlikely containing "meaningful" signal. First of all let's find and remove any bad channels based on spectrum properties.
 
-![Matlab Integrated Development Environment]({{ page.root }}/fig/eeglab_chanrej_menu_crop.png)
+In the Command Window type: 
+~~~
+pop_rejchan(EEG);
+~~~
+{: .source}
+
+Fill in the pop-up window with the following settings: 
+
 ![Matlab Integrated Development Environment]({{ page.root }}/fig/chanrej_gui.png)
 ![Matlab Integrated Development Environment]({{ page.root }}/fig/chanrej_scroll.png)
 
@@ -64,7 +71,15 @@ Artifact detection was performed on each channel, now we want to perform an arti
 #### **Remove bad time segments (epochs)**
 
 There are several methods for identifying bad time periods. For this basic exercise we will use a traditional abnormal value criteria in which we flag any epoch that contains absolute voltages greater than 100 microvolts in any channel and at any time during the segment. 
-![Matlab Integrated Development Environment]({{ page.root }}/fig/eeglab_rmep_menu_crop.png)
+
+In the Command Window type: 
+
+~~~
+pop_rejmenu(EEG, 1)
+~~~
+{: .source}
+
+Under Find abnormal values, edit the Upper limit to 100 and the Lower limit to -100 as shown below and click `Calc / Plot`. 
 ![Matlab Integrated Development Environment]({{ page.root }}/fig/rmep_gui_crop.png)
 ![Matlab Integrated Development Environment]({{ page.root }}/fig/rmep_scroll.png)
 

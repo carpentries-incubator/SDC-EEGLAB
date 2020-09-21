@@ -15,11 +15,11 @@ keypoints:
 
 #### **EEGLAB is a set of Matlab functions (... which are text files).**
 
-Before we get started analyzing EEG data in EEGLAB lets take a look at how the functions operate in the Matlab environment. Matlab is and interpreted language. This means that it will read some text, interpret it in a very specific way and then perform the operations that are defined by the text.
+Before we get started analyzing EEG data in EEGLAB lets take a look at how the functions operate in the Matlab environment. Matlab is an interpreted language. This means that it will read some text, interpret it in a very specific way and then perform the operations that are defined by the text.
 
 For our purposes we can think of Matlab doing two very important things:
-1. it stores information in memory as different kinds of variables
-2. it can perform operations (or functions) on those variable
+1. It stores information in memory as different kinds of variables
+2. It can perform operations (or functions) on those variables
 
 Lets open the Matlab Integrated Development Environment (IDE) and take a look at these capabilities.
 
@@ -63,8 +63,8 @@ figure;plot(x);
 ~~~
 {: .source}
 
-With a few commands we can replicate the effect of calculating and Event Related Potential (ERP).
-First we create a three dimensional array of random numbers. Note that segmented EEG data dakes this form in EEGLAB, where rows are channels, columns are time samples and pages are epochs.
+With a few commands we can replicate the effect of calculating an Event Related Potential (ERP).
+First we create a three dimensional array of random numbers. Note that segmented EEG data takes this form in EEGLAB, where rows are channels, columns are time samples and pages are epochs.
 ~~~
 y=rand(3,1000,600);
 ~~~
@@ -72,7 +72,7 @@ y=rand(3,1000,600);
 
 We can find the size of an array by calling its "size". The order of the dimensions in Matlab indexing are 1- rows, 2- columns and 3- pages.
 ~~~
-size(y);
+size(y)
 ~~~
 {: .source}
 
@@ -80,7 +80,7 @@ size(y);
 #### **A random number ERP**
 
 Next we can plot portions of the three dimensional array by indexing to y.
-Then apply an average to a specified range of values along the third dimension of y (pages, or tials in EEG) before plotting it as an overlay.
+Then apply an average to a specified range of values along the third dimension of y (pages, or trials in EEG) before plotting it as an overlay.
 Then finally average across the entire range of pages (epochs) and then overlay the result on the figure.
 This example demonstrates that the more random numbers that are averaged together, the smaller the resulting mean becomes. This is a fundamental property of ERPs
 ~~~
@@ -94,7 +94,7 @@ hold on;plot(mean(y(2,:,:),3),'r');
 
 #### **Exploring *.m files**
 
-Note that operations in Matlab are are text files that we can examine. Matlab needs to be able to see the text file (*.m) that describes a function in its "path". We can find out where Matlab is finding a function file by querying "which [funcname]". 
+Note that operations in Matlab are text files that we can examine. Matlab needs to be able to see the text file (*.m) that describes a function in its "path". We can find out where Matlab is finding a function file by querying "which [funcname]". 
 ~~~
 which mean;
 ~~~
@@ -116,17 +116,15 @@ eeglab;
 ~~~
 {: .source}
 
-For this lesson let's set up our environments to be similar. Copy the "face_house_13" folder to the desktop and then navigate the Matlab Command Window to make the Desktop the "Current Folder". There are several ways of doing this. Double clicking on paths in the "Current Folder" will accomplish this or calling the following "cd" command will work in many cases:
-~~~
-cd ~/Desktop/face_house_13
-~~~
-{: .source}
+In Matlab, navigate to the Face13 folder that you made during the [BIDS-EEG-EEGLAB tutorial](https://bucanl.github.io/SDC-BIDS-EEG-EEGLAB/).
 
-Now that Matlab is pointed to the face_house_13 folder we need to tell it where to find the "eeglab.m" file that we want to use for this lesson. Navigating in the Current Folder window (by expanding folders WITHOUT selecting (double clicking) them) we find the "eeglab.m" file in 'derivatives/lossless/code/dependencies/eeglab_asr_amica'. We need to add this folder to Matlab's path in order to run this version of EEGLAB. We can add this folder to Matlab's path in several ways including using the "set path" button in the toolbar, but given that we are all in the same folder structure the following "addpath" call in the Command Window should work. 
+Now that Matlab is pointed to the Face13 folder we need to tell it where to find the "eeglab.m" file that we want to use for this lesson. Navigating in the Current Folder window (by expanding folders WITHOUT selecting (double clicking) them) we find the "eeglab.m" file in 'code/BIDS-Init-Face13-EEGLAB/eeglab'. We need to add this folder to Matlab's path in order to run this version of EEGLAB. We can add this folder to Matlab's path in several ways including using the "set path" button in the toolbar, but given that we are all in the same folder structure the following "addpath" calls in the Command Window should work. 
+
 ![eeglab path]({{ page.root }}/fig/eeglab_path.png)
 
 ~~~
-addpath('derivatives/lossless/code/dependencies/eeglab_asr_amica');
+>> addpath code/BIDS-Init-Face13-EEGLAB
+>> addpath code/BIDS-Init-Face13-EEGLAB/eeglab
 ~~~
 {: .source}
 
@@ -136,13 +134,13 @@ eeglab
 ~~~
 {: .source}
 
-EEGLAB has a Graphical User Interface (GUI) so we will be able to a lot of the processing by clicking in menus and interacting with figures, but we will also learn how to take advantage of EEGLAB's integration with the command line interface to work more efficiently and reliably.
+EEGLAB has a Graphical User Interface (GUI) so we will be able to do a lot of the processing by clicking in menus and interacting with figures, but we will also learn how to take advantage of EEGLAB's integration with the command line interface to work more efficiently and reliably.
 
 ![eeglab gui]({{ page.root }}/fig/eeglab_gui.png)
 
 #### **Setting some EEGLAB options so it behaves similarly for everyone**
 
-Now that we all have EEGLAB running in Matlab on our computers let's set a couple options to make sure that the software behaves similarly for all of us. Select "Memory and other options" from the EEGLAB "File" menu and adjust the settings as illustrated below.
+Now that we all have EEGLAB running in Matlab on our computers let's set a couple options to make sure that the software behaves similarly for all of us. Select "Preferences" from the EEGLAB "File" menu and adjust the settings as illustrated below.
 
 ![memory options menu]({{ page.root }}/fig/eeglab_memopt_menu_crop.png)
 
