@@ -7,7 +7,7 @@ questions:
 - "What tools are available for visualizing ICA ERPs?"
 - "How can we examine ICs across subjects in a group analysis?"
 objectives:
-- "Perform data summaries and statistics on ICs in a addition to scalp channels"
+- "Perform data summaries and statistics on ICs in addition to scalp channels"
 keypoints:
 - "Increasing the measurement specificity by analysing ICs"
 ---
@@ -15,14 +15,14 @@ keypoints:
 
 #### **How can we identify cortical components?**
 
-We can examine which ICs account for specific ERP patterns by comparing the scalp ERPs (with topographies) to the IC ERP envelope plots. In order to accomplish this we can load segmented files one at a time and examine which ICs account for various ERPs patterns. Let's start with sub-s01.
+We can examine which ICs account for specific ERP patterns by comparing the scalp ERPs (with topographies) to the IC ERP envelope plots. In order to accomplish this we can load segmented files one at a time and examine which ICs account for various ERP patterns. Let's start with sub-s01.
 
 
 ![load ll browse ]({{ page.root }}/fig/eeglab_load_ic_test.png)
 
 #### **Examine the scalp ERP waveform with topographical maps**
 
-By plotting the ERPs of all that channels overlayed one on top of the other we get and understanding of the voltage distribution at each time point along the ERP period. Further by plotting the topographical map at specific time points we see the spatial distribution of the voltages over time. It is important to note hear that at the scalp the ERP voltage pattern appear to move around the surface of the scalp.
+By plotting the ERPs of all the channels overlayed one on top of the other we get an understanding of the voltage distribution at each time point along the ERP period. Further by plotting the topographical map at specific time points we see the spatial distribution of the voltages over time. It is important to note here that at the scalp the ERP voltage pattern appears to move around the surface of the scalp.
 
 ![ic id menu]({{ page.root }}/fig/eeglab_ic_id_scalp_menu_crop.png)
 
@@ -33,7 +33,7 @@ By plotting the ERPs of all that channels overlayed one on top of the other we g
 
 #### **Examine the IC ERP envelope plots with topographical maps**
 
-In contrast to plotting scalp channels with with topographical maps at specified time points, the IC ERP plot illustrates the IC envelopes (voltage min max at each time point) of each of the top contributing ICs. Each component has a fixed topographical projection be we see that the components vary over time with regards to the percentage of the data that they account for at the scalp (which appears as movement of topographical maps on the scalp surface). 
+In contrast to plotting scalp channels with topographical maps at specified time points, the IC ERP plot illustrates the IC envelopes (voltage min max at each time point) of each of the top contributing ICs. Each component has a fixed topographical projection and we see that the components vary over time with regards to the percentage of the data that they account for at the scalp (which appears as movement of topographical maps on the scalp surface). 
 
 ![ic topo fig]({{ page.root }}/fig/erp_ic_topo_fig.png)
 
@@ -89,7 +89,7 @@ Like we did previously for the scalp signal we need to precompute some measure f
 
 #### Cluster components
 
-Unlike scalp channels where we can typically us basic parameters to choose which channels are included in an analysis for each subject (e.g. site Oz for each participant, or the maximum channel during a specific time interval for each participant) more complex decisions need to be made about which components are used for each participant. Then we need to cluster those components together to create the signals for the analyses. There are automated ways of doing clustering analyses, but since we have already classified the components that we are interested in we will perform the clustering manually.
+Unlike scalp channels where we can typically use basic parameters to choose which channels are included in an analysis for each subject (e.g. site Oz for each participant, or the maximum channel during a specific time interval for each participant) more complex decisions need to be made about which components are used for each participant. Then we need to cluster those components together to create the signals for the analyses. There are automated ways of doing clustering analyses, but since we have already classified the components that we are interested in we will perform the clustering manually.
 
 In order to cluster the components manually, we first need to build the basic clustering structures with some minimal parameters.
 
@@ -98,14 +98,14 @@ In order to cluster the components manually, we first need to build the basic cl
 
 ![study pre clust gui]({{ page.root }}/fig/pre_clust_gui.png)
 
-... Once that some basic weights are set we can build the initial cluster structure. Note, at this point we are not interested in how EEGLAB clusters the components together, we just need it to build an initial cluster structure so that we can modify it manually.
+... Once some basic weights are set we can build the initial cluster structure. Note, at this point we are not interested in how EEGLAB clusters the components together, we just need it to build an initial cluster structure so that we can modify it manually.
 
 ![clust comp menu]({{ page.root }}/fig/eeglab_clust_comp_menu_crop.png)
 
 ![clust comp gui]({{ page.root }}/fig/clust_comp_gui.png)
 
 #### Edit the component cluster.
-Once that the clustering is complete the GUI for viewing and editing the component cluster appears and we can start working with the cluster. We asked EEGLAB to cluster the components into two cluster so now we see that there is a "Parent cluster" (containing all of the components in the study) as well as "Cls 2" and "Cls 3". We want to add two more clusters, specifically "P100" and "N170" then populate those clusters with component classification decisions that we made earlier.
+Once the clustering is complete the GUI for viewing and editing the component cluster appears and we can start working with the cluster. We asked EEGLAB to cluster the components into two clusters so now we see that there is a "Parent cluster" (containing all of the components in the study) as well as "Cls 2" and "Cls 3". We want to add two more clusters, specifically "P100" and "N170" then populate those clusters with component classification decisions that we made earlier.
 
 ![edit clust comp new gui]({{ page.root }}/fig/edit_clust_new_gui_crop.png)
 
@@ -115,7 +115,7 @@ Once that the clustering is complete the GUI for viewing and editing the compone
 
 #### Reassigning components to clusters
 
-All of the components in the study belong to either "Cls 2" or "Cls 3". Our goal now is to find all of the components that we classified earlier and reassign them to the new clusters "P100" and "N170" that we created manually. We can do this by selecting a component in the right side list and then clicking "Reassign selected component(s)), then selecting the cluster that it should be assigned to.
+All of the components in the study belong to either "Cls 2" or "Cls 3". Our goal now is to find all of the components that we classified earlier and reassign them to the new clusters "P100" and "N170" that we created manually. We can do this by selecting a component in the right side list and then clicking "Reassign selected component(s), then selecting the cluster that it should be assigned to.
 
 
 ![reasgn comp gui sel]({{ page.root }}/fig/reasgn_comp_gui_sel_crop.png)
