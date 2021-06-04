@@ -15,7 +15,7 @@ keypoints:
 
 #### **EEGLAB's EEG structure contains the information required to work with the EEG data**
 
-Now that we have EEGLAB running inside of Matlab let's take a look under the hood to see how EEGLAB organizes the information that is contained in an EEG recording file. In order to do this we will need to load an EEG recording from GUI. To do this, navigate to File > Using EEGLAB functions and plugins > From BIDS Subject folder
+Now that we have EEGLAB running inside of Matlab let's take a look under the hood to see how EEGLAB organizes the information that is contained in an EEG recording file. In order to do this we will need to load an EEG recording from the GUI. To do this, navigate to File > Using EEGLAB functions and plugins > From BIDS Subject folder
 
 ![EEGLAB Load set]({{ page.root }}/fig/eeglab_load_edf_crop.png)
 
@@ -25,7 +25,7 @@ Now that we have EEGLAB running inside of Matlab let's take a look under the hoo
 
 #### **Exploring properties of the EEG data file**
 
-Once that a file is loaded into EEGLAB the main GUI figure provides some basic properties of the file such as the number of channels and sampling rate. The goal of this lesson is to be able to interact with all of the EEG properties from within the Command Window.
+Once a file is loaded into EEGLAB the main GUI figure provides some basic properties of the file such as the number of channels and sampling rate. The goal of this lesson is to be able to interact with all of the EEG properties from within the Command Window.
 
 ![EEGLAB GUI summary]({{ page.root }}/fig/eeglab_gui_summary.png)
 
@@ -44,7 +44,7 @@ Beyond the basic EEG file property preview on the main EEGLAB window, there are 
 > {: .source}
 {: .callout}
 
-The channel locations can also be viewed in their topographical layout.
+The channel locations can also be viewed in their topographical layout. In the GUI, navigate to Plot > Channel locations > By name
  
 ![EEGLAB chanloc menu]({{ page.root }}/fig/eeglab_chanloc_menu_crop.png)
 
@@ -52,7 +52,8 @@ The channel locations can also be viewed in their topographical layout.
 
 #### **Editing EEG file properties from the GUI**
 
-Working from the command line any property of the EEG file (e.g. data voltage, event label or time, channel location, etc) can be modified. The GUI also provides tools for modifying some of the data properties, such as the channel location via the "Edit" menu. 
+Working from the command line any property of the EEG file (e.g. data voltage, event label or time, channel location, etc) can be modified. The GUI also provides tools for modifying some of the data properties, such as the channel location via the "Edit" menu. To open the "Edit channel info" window, navigate to Edit > Channel locations. Within the "Edit channel info" popup window, select `Plot 3-D (xyz)`.
+
 ![EEGLAB edit chanloc menu]({{ page.root }}/fig/eeglab_edit_chanloc_menu_crop.png)
 
 ![edit chanloc gui]({{ page.root }}/fig/edit_chanloc_gui_crop.png)
@@ -80,10 +81,32 @@ EEG.chanlocs(1)
 ![EEG chanlocs structure]({{ page.root }}/fig/eeg_chanlocs_structure.png)
 
 
-> ## For fun: try to set latency of the 10th event to 100, and then replot the scalp scroll plot:
-> Hint: the event information is in "EEG.event"
+> ## For fun: try editing the latency of an event
+>
+> Set latency of the 10th event to 100, and then replot the scalp scroll plot
 >
 > {: .source}
+>
+>> ## Hint
+>>
+>> The event information is in "EEG.event"
+>>
+>> {: .output}
+>{: .solution}
+>
+>> ## Solution
+>> 
+>> To change the latency of the 10th event to 100 type: 
+>> ~~~
+>>EEG.event(10).latency = 100
+>>~~~
+>>{: .source}
+>>
+>>Once the event latency has been edited, the scalp scroll plot can be plotted using the EEGLAB GUI via the "Plot" menu by selecting "Channel data (scroll)". You will have to change some of the figure settings again (remove DC offset, decrease the voltage range to 80, and increase the time length). In the scroll plot you should see the 10th event (house-inverted) at 0.4 seconds.
+>>Note that the latency stored in the EEG.event.latency is measured in samples. Since our sampling rate (EEG.srate) is 256, changing the latency of event 10 to 100 placed this event at about 0.4 seconds (100/256=0.4).
+>>
+>> {: .output}
+>{: .solution}
 {: .callout}
 
 
