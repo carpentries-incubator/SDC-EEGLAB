@@ -85,8 +85,6 @@ EEG.chanlocs(1)
 >
 > Set latency of the 10th event to 100, and then replot the scalp scroll plot
 >
-> {: .source}
->
 >> ## Hint
 >>
 >> The event information is in "EEG.event"
