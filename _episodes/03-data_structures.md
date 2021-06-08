@@ -107,6 +107,7 @@ EEG.chanlocs(1)
 >{: .solution}
 {: .callout}
 
+![EEG event struct BIDS]({{ page.root }}/fig/SDC_BIDS_EEG_event_struct.png)
 
 {% include links.md %}
 
