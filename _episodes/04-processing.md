@@ -15,11 +15,11 @@ keypoints:
 
 #### **Import or Load an edf file into EEGLAB**
 
-Let's start with a new edf file. Here is how to clear existing EEG structures from workspace:
+Let's start with a new edf file. To clear existing EEG structures from workspace navigate to File > Clear study / Clear all:
 
 ![eeglab clear]({{ page.root }}/fig/eeglab_clear_crop.png)
 
-Now open a new file (perhaps participant 02) and let's process this one file though until we have an Event Related Potential (ERP).
+Now open a new file (perhaps participant 02 by navigating to File > Import data > Using EEGLAB functions and plugins > From BIDS subject folder and selecting the .edf file in `sub-002/eeg/`) and let's process this one file though until we have an Event Related Potential (ERP).
 
 #### **Re-reference to the average channel**
 
@@ -28,6 +28,8 @@ There are many ways to re-reference EEG data and for this basic analysis we will
 ![Matlab Integrated Development Environment]({{ page.root }}/fig/eeglab_reref_menu_crop.png)
 ![Matlab Integrated Development Environment]({{ page.root }}/fig/reref_gui.png)
 ![Matlab Integrated Development Environment]({{ page.root }}/fig/reref_rename.png)
+
+After each processing step, we will be asked to name our new dataset and either overwrite or save the old dataset. During this episode we will be overwriting the old dataset in memory after each step and then saving a final segmented file at the end.
 
 #### **Filter the data**
 
@@ -41,7 +43,7 @@ After re-referencing we can also filter the data with the frequently used 1Hz hi
 
 #### **Remove bad channels**
 
-Now that some of the basic signal processing is done to restrict the data to signal properties that we are interested in we can look for channels and periods of time that contain noise properties. These typically include large voltage fluxuations the would have relatively large impact on the ERPs while unlikely containing "meaningful" signal. First of all let's find and remove any bad channels based on spectrum properties.
+Now that some of the basic signal processing is done to restrict the data to signal properties that we are interested in we can look for channels and periods of time that contain noise properties. These typically include large voltage fluxuations that would have relatively large impact on the ERPs while unlikely containing "meaningful" signal. First of all let's find and remove any bad channels based on spectrum properties.
 
 In the Command Window type: 
 ~~~
@@ -54,8 +56,10 @@ Fill in the pop-up window with the following settings:
 ![Matlab Integrated Development Environment]({{ page.root }}/fig/chanrej_gui.png)
 ![Matlab Integrated Development Environment]({{ page.root }}/fig/chanrej_scroll.png)
 
+Press `Reject` after you have reviewed the channels that have been flagged as artifcatual. 
+
 #### **Re-reference to the average channel**
-After removing the channels that were identified with the spectrum criteria we re-reference that data again to the new average site (that does not include the rejected channels). This is important as channels that have large artifacts can end up having a big influence on all of the other channels in the montage if left in the reference.
+After removing the channels that were identified with the spectrum criteria we re-reference that data again to the new average site (that does not include the rejected channels). This is important as channels that have large artifacts can end up having a big influence on all of the other channels in the montage if left in the reference. Re-referencing the data can be done in the GUI by selecting Tools > Re-reference the data.
 
 #### **Segment the data relative to face stimulus events**
 
@@ -87,7 +91,7 @@ Under Find abnormal values, edit the Upper limit to 100 and the Lower limit to -
 
 #### **Save the segmented data**
 
-Now that we have done some typical signal processing and artifact detection we can save the current segmented data set to a file and then examine the ERPs that it contains. When saving a data set from EEGLAB we are writing the EEG structure to a Matlab file that can be easily loaded again later.
+Now that we have done some typical signal processing and artifact detection we can save the current segmented dataset to a file and then examine the ERPs that it contains. When saving a data set from EEGLAB we are writing the EEG structure to a Matlab file that can be easily loaded again later.
 ![Matlab Integrated Development Environment]({{ page.root }}/fig/eeglab_save_menu_crop.png)
 ![Matlab Integrated Development Environment]({{ page.root }}/fig/eeglab_save_browser.png)
 
