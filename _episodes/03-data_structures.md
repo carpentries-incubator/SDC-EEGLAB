@@ -15,7 +15,7 @@ keypoints:
 
 #### **EEGLAB's EEG structure contains the information required to work with the EEG data**
 
-Now that we have EEGLAB running inside of Matlab let's take a look under the hood to see how EEGLAB organizes the information that is contained in an EEG recording file. In order to do this we will need to load an EEG recording from the GUI. To do this, navigate to File > Using EEGLAB functions and plugins > From BIDS Subject folder
+Now that we have EEGLAB running inside of Matlab let's take a look under the hood to see how EEGLAB organizes the information that is contained in an EEG recording file. In order to do this we will need to load an EEG recording from the GUI. To do this, navigate to File > Import > Using EEGLAB functions and plugins > From BIDS Subject folder
 
 ![EEGLAB Load set]({{ page.root }}/fig/eeglab_load_edf_crop.png)
 
@@ -61,7 +61,7 @@ Working from the command line any property of the EEG file (e.g. data voltage, e
 ![edit chanloc 3d]({{ page.root }}/fig/edit_chanloc_3d.png)
 
 #### **Exploring the EEG properties from the Command Line**
-Although many of the EEG data properties are available for viewing and editing from the command line everything is also available within the EEG structure in the Workspace and can be explored in the Command Window.
+Although many of the EEG data properties are available for viewing and editing from the GUI, everything is also available within the EEG structure in the Workspace and can be explored in the Command Window.
 
 Let's list all of the fields in the EEG structure:
 ~~~
@@ -96,7 +96,7 @@ EEG.chanlocs(1)
 >> 
 >> To change the latency of the 10th event to 100 type: 
 >> ~~~
->>EEG.event(10).latency = 100
+>>EEG.event(10).latency = 100;
 >>~~~
 >>{: .source}
 >>
