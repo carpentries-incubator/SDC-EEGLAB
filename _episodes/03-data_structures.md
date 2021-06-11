@@ -71,18 +71,22 @@ EEG
 
 ![EEG structure]({{ page.root }}/fig/eeg_structure.png)
 
-Now specific fields of a structure can be accessed using the "." notation, and Structure fields can also be indexed like numeric arrays. For example, we can retrieve the properties of the first channel as follows:
+Now specific fields of a structure can be accessed using the "." notation, and structure fields can also be indexed like numeric arrays. For example, we can retrieve the properties of the first channel as follows:
 
 ~~~
 EEG.chanlocs(1)
 ~~~
 {: .source}
 
+#### **Linking the EEG structure fields to the BIDS file structure**
+
+Now that we can explore how EEGLAB stores the various data parameters in the 'EEG' structure we can explore how these structure fields related to the BIDS standard file structure.
+
+![EEG general struct BIDS]({{ page.root }}/fig/SDC_BIDS_EEG_general_struct.png)
 ![EEG chanlocs structure]({{ page.root }}/fig/eeg_chanlocs_structure.png)
 ![EEG chan struct BIDS]({{ page.root }}/fig/SDC_BIDS_EEG_chan_struct.png)
 ![EEG event struct BIDS]({{ page.root }}/fig/SDC_BIDS_EEG_event_struct.png)
 ![EEG data struct BIDS]({{ page.root }}/fig/SDC_BIDS_EEG_dat_strcut.png)
-![EEG general struct BIDS]({{ page.root }}/fig/SDC_BIDS_EEG_general_struct.png)
 
 > ## For fun: try editing the latency of an event
 >
