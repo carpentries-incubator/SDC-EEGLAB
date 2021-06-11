@@ -80,6 +80,9 @@ EEG.chanlocs(1)
 
 ![EEG chanlocs structure]({{ page.root }}/fig/eeg_chanlocs_structure.png)
 ![EEG chan struct BIDS]({{ page.root }}/fig/SDC_BIDS_EEG_chan_struct.png)
+![EEG event struct BIDS]({{ page.root }}/fig/SDC_BIDS_EEG_event_struct.png)
+![EEG data struct BIDS]({{ page.root }}/fig/SDC_BIDS_EEG_dat_struct.png)
+![EEG general struct BIDS]({{ page.root }}/fig/SDC_BIDS_EEG_general_struct.png)
 
 > ## For fun: try editing the latency of an event
 >
